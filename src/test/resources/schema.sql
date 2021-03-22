@@ -1,4 +1,5 @@
--- database name countries_db
+-- drop database if exists countries_db;
+-- create database if not exists countries_db;
 
 drop table if exists pais;
 
