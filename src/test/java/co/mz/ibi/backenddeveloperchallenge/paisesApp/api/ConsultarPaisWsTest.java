@@ -87,7 +87,7 @@ public class ConsultarPaisWsTest {
 		
 		final PaisDTO dto = dtos.get(0);
 		assertNotNull(dto.getId());
-		assertEquals("Maputo", dto.getCapital());
+		assertEquals("Luanda", dto.getCapital());
 
 	}
 	
@@ -141,7 +141,7 @@ public class ConsultarPaisWsTest {
 		
 		final PaisDTO dto = dtos.get(0);
 		assertNotNull(dto.getId());
-		assertEquals("Tanzania", dto.getNome());
+		assertEquals("Mozambique", dto.getNome());
 	}
 
 }

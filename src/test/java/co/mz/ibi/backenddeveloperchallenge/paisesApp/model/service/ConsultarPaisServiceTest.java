@@ -54,9 +54,9 @@ public class ConsultarPaisServiceTest {
 		assertFalse(paises.isEmpty());
 		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
-		assertEquals(2, pais.getId());
-		assertEquals("Angola", pais.getNome());
-		assertEquals("Luanda", pais.getCapital());
+		assertEquals(1, pais.getId());
+		assertEquals("Mozambique", pais.getNome());
+		assertEquals("Maputo", pais.getCapital());
 	}
 	
 	@Test
@@ -87,8 +87,6 @@ public class ConsultarPaisServiceTest {
 		assertFalse(paises.isEmpty());
 		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
-		assertEquals(1, pais.getId());
-		assertEquals("Mozambique", pais.getNome());
-		assertEquals("Maputo", pais.getCapital());
+		assertEquals(4, pais.getId());
 	}
 }
