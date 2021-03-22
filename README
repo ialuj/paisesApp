@@ -25,26 +25,31 @@ insert into pais(nome, capital, regiao, sub_regiao, area) values('Mozambique', '
 insert into pais(nome, capital, regiao, sub_regiao, area) values('Angola', 'Luanda', 'Africa', 'Africa Austral', 1246700.00);
 insert into pais(nome, capital, regiao, sub_regiao, area) values('Africa do Sul', 'Pretoria', 'Africa', 'Africa Austral', 1221037.00);
 
-2. Baixar o código para um workspace de nome a sua escolha:
+2. Baixar o código do repositorio do Git abaixo para um workspace de nome a sua escolha:
 
 URL do Git: https://github.com/ialuj/paisesApp
 
 Use o comando "git clone origin https://github.com/ialuj/paisesApp <directorio a alojar o projecto>"
 
-3. Caso queira executar o codigo, garanta que tem o Maven instalado no seu Sistema Operativo e a respectiva variavel de Ambiente configurada e tambem colocada no PATH.
+3. Alterar o utilizador e senha de base de dados no ficheiro localizado em "/src/main/resources/" do projecto e designado "application.properties":
+
+i. spring.datasource.username=root -- alterar para o seu utilizador de acesso a base de dados
+ii. spring.datasource.password=52452011 -- alterar a senha do utilizador de acesso a base de dados
+
+4. Caso queira executar a aplicação (API) localmente, garanta que tem o Maven instalado no seu Sistema Operativo e a respectiva variavel de Ambiente configurada e também colocada no PATH.
 Então, neste caso, pode prosseguir com os comandos abaixo:
 i. Abra o terminal (Linux) ou CMD (Windows) e entre na raiz do projecto
 ii. Execute o comando "mvn install" este comando irá baixar todas as dependências necessárias para o projecto, irá também executar todos os testes unitários do projecto,
 e por fim irá gerar um ficheiro (jar) "paisesApp-0.0.1-SNAPSHOT.jar".
-iii. Copie o arquivo "paisesApp-0.0.1-SNAPSHOT.jar" para um directório de fácil acesso "Desktop" por exemplo.
+iii. Copie o arquivo "paisesApp-0.0.1-SNAPSHOT.jar" que se encontra na pasta target para um directório de fácil acesso "Desktop" por exemplo.
 iv. Entre no Directório "Desktop" ou escolhido acima que contém o ficheiro "paisesApp-0.0.1-SNAPSHOT.jar" e execute o comando: java -jar paisesApp-0.0.1-SNAPSHOT.jar
-v. Use o POSTMAN ou INSOMNIA ou mesmo pelo seu navegador e teste os web services
+v. Use o POSTMAN ou INSOMNIA ou outra aplicação cliente para testes dos web services cujos links estão mais abaixo na secção "NB"
 
-4. Caso queira executar por uma IDE Eclipse ou NetBeans ou outro para projectos Java e import o projecto como um "Maven Project"
+5. Caso queira executar ou ver o código do projecto através de um IDE Eclipse ou NetBeans ou outro para projectos Java e import o projecto como um "Maven Project"
 
-5. Actualize o projecto usando o comando "Maven Update" ou "Maven Install"
+6. Actualize o projecto usando o comando "Maven Update" ou "Maven Install"
 
-6. Execute a classe PaisesAppApplication pela opção "Run As: Java Application"
+7. Execute a classe PaisesAppApplication pela opção "Run As: Java Application"
 
 E execute o passo 3. v)
 
@@ -78,7 +83,7 @@ http://host:8080/api/v1/manterpaises/removerpais
 
 Exemplo de um JSON a usar nestes casos:
 
-Para registo
+Para registo:
 {
         "nome": "Moçambique",
         "capital": "Maputo",
