@@ -1,1 +1,114 @@
-Sample ReadMe file
+Esta é uma API Rest desonvolvida usando o FrameWork Spring Boot.
+
+A seguir o passo a passo para poder rodar o projecto localmente:
+
+1. Execução de scripts de base de Dados
+
+i) A Base de Dados usada aqui é o MySQL
+ii) Se tiver o MySQL instalado, aceda a pasta /src/test/resources/ e copie o arquivo schema.sql que contém os scripts abaixo:
+
+Crie uma base de dados de nome "countries_db" e execute os scripts
+
+-- drop database if exists countries_db; -- Retire os comentários desta linha
+-- create database if not exists countries_db; -- Retire os comentários desta linha
+
+drop table if exists pais;
+
+create table if not exists pais(id int auto_increment primary key,
+nome varchar(500) not null unique,
+capital varchar(500) not null,
+regiao varchar(500),
+sub_regiao varchar(500),
+area numeric(18, 2));
+
+insert into pais(nome, capital, regiao, sub_regiao, area) values('Mozambique', 'Maputo', 'Africa', 'Africa Austral', 801510.00);
+insert into pais(nome, capital, regiao, sub_regiao, area) values('Angola', 'Luanda', 'Africa', 'Africa Austral', 1246700.00);
+insert into pais(nome, capital, regiao, sub_regiao, area) values('Africa do Sul', 'Pretoria', 'Africa', 'Africa Austral', 1221037.00);
+
+2. Baixar o código para um workspace de nome a sua escolha:
+
+URL do Git: https://github.com/ialuj/paisesApp
+
+Use o comando "git clone origin https://github.com/ialuj/paisesApp <directorio a alojar o projecto>"
+
+3. Caso queira executar o codigo, garanta que tem o Maven instalado no seu Sistema Operativo e a respectiva variavel de Ambiente configurada e tambem colocada no PATH.
+Então, neste caso, pode prosseguir com os comandos abaixo:
+i. Abra o terminal (Linux) ou CMD (Windows) e entre na raiz do projecto
+ii. Execute o comando "mvn install" este comando irá baixar todas as dependências necessárias para o projecto, irá também executar todos os testes unitários do projecto,
+e por fim irá gerar um ficheiro (jar) "paisesApp-0.0.1-SNAPSHOT.jar".
+iii. Copie o arquivo "paisesApp-0.0.1-SNAPSHOT.jar" para um directório de fácil acesso "Desktop" por exemplo.
+iv. Entre no Directório "Desktop" ou escolhido acima que contém o ficheiro "paisesApp-0.0.1-SNAPSHOT.jar" e execute o comando: java -jar paisesApp-0.0.1-SNAPSHOT.jar
+v. Use o POSTMAN ou INSOMNIA ou mesmo pelo seu navegador e teste os web services
+
+4. Caso queira executar por uma IDE Eclipse ou NetBeans ou outro para projectos Java e import o projecto como um "Maven Project"
+
+5. Actualize o projecto usando o comando "Maven Update" ou "Maven Install"
+
+6. Execute a classe PaisesAppApplication pela opção "Run As: Java Application"
+
+E execute o passo 3. v)
+
+Lista de URLs dos webservices:
+
+O "host" pode ser "localhost" ou "ip" do seu computador
+
+Web Services de consulta:
+
+http://host:8080/api/v1/consultarpaises/todos
+
+http://host:8080/api/v1/consultarpaises/ordenarPorId
+
+http://host:8080/api/v1/consultarpaises/ordenarPorNome
+
+http://host:8080/api/v1/consultarpaises/ordenarPorCapital
+
+http://host:8080/api/v1/consultarpaises/ordenarPorRegiao
+
+http://host:8080/api/v1/consultarpaises/ordenarPorSubRegiao
+
+http://host:8080/api/v1/consultarpaises/ordenarPorArea
+
+Web Services de Registo, Actualização e Remoção:
+
+http://host:8080/api/v1/manterpaises/registarpais
+
+http://host:8080/api/v1/manterpaises/actualizarpais
+
+http://host:8080/api/v1/manterpaises/removerpais
+
+Exemplo de um JSON a usar nestes casos:
+
+Para registo
+{
+        "nome": "Moçambique",
+        "capital": "Maputo",
+        "regiao": "Africa",
+        "subRegiao": "Africa Austral",
+        "area": 801590
+}
+
+Para actualização:
+
+{
+        "id": 1,
+        "nome": "Moçambique",
+        "capital": "Maputo",
+        "regiao": "Africa",
+        "subRegiao": "Africa Austral",
+        "area": 801590
+}
+
+Para remoção:
+
+{
+        "id": 1
+}
+
+
+NB: A primeira vez aquando da importação e actualização do projecto no seu computador deve ter uma conexação de internet para permitir que o maven baixe as 
+dependências necessárias para o projecto
+
+
+
+
+

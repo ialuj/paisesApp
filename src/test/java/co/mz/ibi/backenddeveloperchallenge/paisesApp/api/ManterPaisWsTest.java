@@ -1,8 +1,8 @@
 package co.mz.ibi.backenddeveloperchallenge.paisesApp.api;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -10,8 +10,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
@@ -24,7 +22,6 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.class)
 public class ManterPaisWsTest {
 
 	@MockBean
