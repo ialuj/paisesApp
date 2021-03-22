@@ -1,0 +1,98 @@
+package co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.RequisicaoPais;
+import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
+import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.exception.NegocioException;
+
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
+public class ManterPaisServiceTest {
+
+	@Autowired
+	private IManterPaisService manterPaisService;
+
+	@Autowired
+	private IConsultarPaisService consultarPaisService;
+
+	@Test
+	public void registarPais() {
+
+		final RequisicaoPais requisicaoPais = new RequisicaoPais();
+		requisicaoPais.setNome("Eswathini");
+		requisicaoPais.setCapital("Lesotho");
+		requisicaoPais.setRegiao("Africa");
+		requisicaoPais.setSubRegiao("Africa Austral");
+		requisicaoPais.setArea(Double.parseDouble("415000"));
+
+		final Pais pais = manterPaisService.registarPais(requisicaoPais);
+
+		assertNotNull(pais.getId());
+
+	}
+
+	@Test
+	public void actualizarPais() {
+
+		final Long id = 3L;
+
+		try {
+			final Pais pais = consultarPaisService.pesquisarPaisPorId(id);
+
+			assertNotNull(pais);
+
+			assertNotNull(pais.getId());
+
+			pais.setArea(Double.parseDouble("900000"));
+
+			final RequisicaoPais requisicaoPais = new RequisicaoPais();
+			requisicaoPais.converterParaPaisDTO(pais);
+
+			final Pais paisActualizado = manterPaisService.actualizarPais(requisicaoPais);
+
+			assertEquals(Double.parseDouble("900000"), paisActualizado.getArea());
+		} catch (final NegocioException negocioException) {
+			assertEquals("País com ID: " + id + " não existe!", negocioException.getMessage());
+		}
+
+	}
+
+	@Test
+	public void removerPais() {
+
+		final Long id = 5L;
+
+		try {
+			final Pais pais = consultarPaisService.pesquisarPaisPorId(id);
+
+			assertNotNull(pais);
+
+			assertNotNull(pais.getId());
+
+			manterPaisService.removerPais(id);
+			
+			final List<Pais> paises = consultarPaisService.listarPaises();
+			
+			for (Pais pais2 : paises) {
+				assertNotEquals("Eswathini", pais2.getNome());
+				assertNotEquals("Lesotho", pais2.getCapital());
+			}
+
+		} catch (final NegocioException negocioException) {
+			assertEquals("Pais com ID: "+id+" nao existe!", negocioException.getMessage());
+		}
+
+	}
+
+}
