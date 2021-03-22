@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.PaisDTO;
-import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.RequisicaoPais;
 
 /**
  * 
@@ -17,9 +16,9 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.RequisicaoPais;
  */
 public interface IManterPaisWs {
 	
-	public ResponseEntity<PaisDTO> registarPais(@RequestBody RequisicaoPais requisicaoPais);
+	public ResponseEntity<PaisDTO> registarPais(@RequestBody PaisDTO paisDTO);
 	
-	public ResponseEntity<PaisDTO> actualizarPais(@RequestBody RequisicaoPais requisicaoPais);
+	public ResponseEntity<PaisDTO> actualizarPais(@RequestBody PaisDTO paisDTO);
 	
 	public ResponseEntity removerPais(@PathVariable("id") Long id);
 

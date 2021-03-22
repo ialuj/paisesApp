@@ -24,6 +24,10 @@ public class PaisDTO {
 	
 	private Double area;
 
+	public PaisDTO() {
+		super();
+	}
+
 	public PaisDTO(final Pais pais) {
 		setId(pais.getId());
 		setNome(pais.getNome());

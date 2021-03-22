@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.PaisDTO;
-import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.RequisicaoPais;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 
 @ExtendWith(SpringExtension.class)
@@ -33,7 +32,6 @@ public class ManterPaisWsTest {
 	@Test
 	public void registarPais() {
 
-		final RequisicaoPais requisicaoPais = new RequisicaoPais();
 
 		final Pais pais = new Pais();
 		pais.setNome("Zimbabwe");
@@ -42,13 +40,13 @@ public class ManterPaisWsTest {
 		pais.setSubRegiao("Africa Austral");
 		pais.setArea(Double.parseDouble("750000"));
 
-		PaisDTO dto = requisicaoPais.converterParaPaisDTO(pais);
+		final PaisDTO dto = new PaisDTO(pais);
 
 		ResponseEntity<PaisDTO> response = new ResponseEntity<PaisDTO>(dto, HttpStatus.OK);
 
-		when(manterPaisWs.registarPais(requisicaoPais)).thenReturn(response);
+		when(manterPaisWs.registarPais(dto)).thenReturn(response);
 
-		assertEquals(HttpStatus.OK, manterPaisWs.registarPais(requisicaoPais).getStatusCode());
+		assertEquals(HttpStatus.OK, manterPaisWs.registarPais(dto).getStatusCode());
 
 	}
 
@@ -63,39 +61,32 @@ public class ManterPaisWsTest {
 		pais.setSubRegiao("Africa Austral");
 		pais.setArea(Double.parseDouble("815000"));
 
-		final RequisicaoPais requisicaoPais = new RequisicaoPais();
-		requisicaoPais.setId(pais.getId());
-		requisicaoPais.setNome(pais.getNome());
-		requisicaoPais.setCapital(pais.getCapital());
-		requisicaoPais.setRegiao(pais.getRegiao());
-		requisicaoPais.setSubRegiao(pais.getSubRegiao());
-		requisicaoPais.setArea(pais.getArea());
+		final PaisDTO dto = new PaisDTO(pais);
 
-		PaisDTO paisDTO = requisicaoPais.converterParaPaisDTO(pais);
-		assertNotNull(paisDTO);
+		assertNotNull(dto);
 
 		List<PaisDTO> paisDTOs = new ArrayList<PaisDTO>(0);
-		paisDTOs.add(paisDTO);
+		paisDTOs.add(dto);
 		assertFalse(paisDTOs.isEmpty());
 
 		ResponseEntity<List<PaisDTO>> responseOk = new ResponseEntity<List<PaisDTO>>(paisDTOs, HttpStatus.OK);
 		assertNotNull(responseOk);
 
-		when(consultarPaisWs.ordenarPaisesPorId()).thenReturn(responseOk);
+		when(consultarPaisWs.listarPaises()).thenReturn(responseOk);
 
 		// Dados por actualizar
 		pais.setSubRegiao("Africa Ocidental");
 		pais.setArea(Double.parseDouble("955555"));
 		
-		PaisDTO dto = requisicaoPais.converterParaPaisDTO(pais);
+		final PaisDTO dtoRegistado = new PaisDTO(pais);
 
-		ResponseEntity<PaisDTO> response = new ResponseEntity<PaisDTO>(dto, HttpStatus.OK);
+		ResponseEntity<PaisDTO> response = new ResponseEntity<PaisDTO>(dtoRegistado, HttpStatus.OK);
 
-		when(manterPaisWs.actualizarPais(requisicaoPais)).thenReturn(response);
+		when(manterPaisWs.actualizarPais(dtoRegistado)).thenReturn(response);
 		
-		assertEquals(HttpStatus.OK, manterPaisWs.actualizarPais(requisicaoPais).getStatusCode());
-		assertEquals("Africa Ocidental", manterPaisWs.actualizarPais(requisicaoPais).getBody().getSubRegiao());
-		assertEquals(Double.parseDouble("955555"), manterPaisWs.actualizarPais(requisicaoPais).getBody().getArea());
+		assertEquals(HttpStatus.OK, manterPaisWs.actualizarPais(dtoRegistado).getStatusCode());
+		assertEquals("Africa Ocidental", manterPaisWs.actualizarPais(dtoRegistado).getBody().getSubRegiao());
+		assertEquals(Double.parseDouble("955555"), manterPaisWs.actualizarPais(dtoRegistado).getBody().getArea());
 
 	}
 
@@ -110,19 +101,11 @@ public class ManterPaisWsTest {
 		pais.setSubRegiao("Africa Austral");
 		pais.setArea(Double.parseDouble("815000"));
 
-		final RequisicaoPais requisicaoPais = new RequisicaoPais();
-		requisicaoPais.setId(pais.getId());
-		requisicaoPais.setNome(pais.getNome());
-		requisicaoPais.setCapital(pais.getCapital());
-		requisicaoPais.setRegiao(pais.getRegiao());
-		requisicaoPais.setSubRegiao(pais.getSubRegiao());
-		requisicaoPais.setArea(pais.getArea());
-
-		PaisDTO paisDTO = requisicaoPais.converterParaPaisDTO(pais);
-		assertNotNull(paisDTO);
+		final PaisDTO dto = new PaisDTO(pais);
+		assertNotNull(dto);
 
 		List<PaisDTO> paisDTOs = new ArrayList<PaisDTO>(0);
-		paisDTOs.add(paisDTO);
+		paisDTOs.add(dto);
 		assertFalse(paisDTOs.isEmpty());
 
 		ResponseEntity<List<PaisDTO>> responseOk = new ResponseEntity<List<PaisDTO>>(paisDTOs, HttpStatus.OK);

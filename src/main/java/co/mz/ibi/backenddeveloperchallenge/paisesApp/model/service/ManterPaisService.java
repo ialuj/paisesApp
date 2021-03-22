@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.RequisicaoPais;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.exception.NegocioException;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.repository.ManterPaisRepository;
@@ -25,14 +24,12 @@ public class ManterPaisService implements IManterPaisService {
 	private ManterPaisRepository manterPaisRepository;
 
 	@Override
-	public Pais registarPais(final RequisicaoPais requisicaoPais) {
-		final Pais pais = requisicaoPais.converterParaPais();
+	public Pais registarPais(final Pais pais) {
 		return manterPaisRepository.save(pais);
 	}
 
 	@Override
-	public Pais actualizarPais(final RequisicaoPais requisicaoPais) {
-		final Pais pais = requisicaoPais.converterParaPais();
+	public Pais actualizarPais(final Pais pais) {
 		if (!verificarExistenciaDePais(pais.getId())) {
 			throw new NegocioException("País com ID: " + pais.getId() + " não existe!");
 		}

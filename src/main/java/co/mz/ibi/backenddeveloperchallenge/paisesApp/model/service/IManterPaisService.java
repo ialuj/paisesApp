@@ -1,6 +1,5 @@
 package co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service;
 
-import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.RequisicaoPais;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 
 /**
@@ -12,9 +11,9 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
  */
 public interface IManterPaisService {
 	
-	public Pais registarPais(final RequisicaoPais requisicaoPais);
+	public Pais registarPais(final Pais pais);
 	
-	public Pais actualizarPais(final RequisicaoPais requisicaoPais);
+	public Pais actualizarPais(final Pais pais);
 	
 	public void removerPais(final Long id);
 
