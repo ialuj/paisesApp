@@ -47,7 +47,7 @@ public class ConsultarPaisWs implements IConsultarPaisWs {
 	@GetMapping("/ordenarPorId")
 	public ResponseEntity<List<PaisDTO>> ordenarPaisesPorId() {
 		try {
-			final List<Pais> paises = consultarPaisService.ordenarPaisesPorId();
+			final List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("id");
 			final List<PaisDTO> dtos = paises.stream().map(PaisDTO::new).collect(Collectors.toList());
 			ResponseEntity<List<PaisDTO>> response = ResponseEntity.ok(dtos);
 			return response;
@@ -60,7 +60,7 @@ public class ConsultarPaisWs implements IConsultarPaisWs {
 	@GetMapping("/ordenarPorNome")
 	public ResponseEntity<List<PaisDTO>> ordenarPaisesPorNome() {
 		try {
-			final List<Pais> paises = consultarPaisService.ordenarPaisesPorNome();
+			final List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("nome");
 			final List<PaisDTO> dtos = paises.stream().map(PaisDTO::new).collect(Collectors.toList());
 			ResponseEntity<List<PaisDTO>> response = ResponseEntity.ok(dtos);
 			return response;
@@ -73,7 +73,7 @@ public class ConsultarPaisWs implements IConsultarPaisWs {
 	@GetMapping("/ordenarPorCapital")
 	public ResponseEntity<List<PaisDTO>> ordenarPaisesPorCapital() {
 		try {
-			final List<Pais> paises = consultarPaisService.ordenarPaisesPorCapital();
+			final List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("capital");
 			final List<PaisDTO> dtos = paises.stream().map(PaisDTO::new).collect(Collectors.toList());
 			ResponseEntity<List<PaisDTO>> response = ResponseEntity.ok(dtos);
 			return response;
@@ -86,7 +86,7 @@ public class ConsultarPaisWs implements IConsultarPaisWs {
 	@GetMapping("/ordenarPorRegiao")
 	public ResponseEntity<List<PaisDTO>> ordenarPaisesPorRegiao() {
 		try {
-			final List<Pais> paises = consultarPaisService.ordenarPaisesPorRegiao();
+			final List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("regiao");
 			final List<PaisDTO> dtos = paises.stream().map(PaisDTO::new).collect(Collectors.toList());
 			ResponseEntity<List<PaisDTO>> response = ResponseEntity.ok(dtos);
 			return response;
@@ -98,7 +98,7 @@ public class ConsultarPaisWs implements IConsultarPaisWs {
 	@Override
 	@GetMapping("/ordenarPorSubRegiao")
 	public ResponseEntity<List<PaisDTO>> ordenarPaisesPorSubRegiao() {
-		final List<Pais> paises = consultarPaisService.ordenarPaisesPorSubRegiao();
+		final List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("subRegiao");
 		final List<PaisDTO> dtos = paises.stream().map(PaisDTO::new).collect(Collectors.toList());
 		ResponseEntity<List<PaisDTO>> response = ResponseEntity.ok(dtos);
 		return response;
@@ -108,7 +108,7 @@ public class ConsultarPaisWs implements IConsultarPaisWs {
 	@GetMapping("/ordenarPorArea")
 	public ResponseEntity<List<PaisDTO>> ordenarPaisesPorArea() {
 		try {
-			final List<Pais> paises = consultarPaisService.ordenarPaisesPorArea();
+			final List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("area");
 			final List<PaisDTO> dtos = paises.stream().map(PaisDTO::new).collect(Collectors.toList());
 			ResponseEntity<List<PaisDTO>> response = ResponseEntity.ok(dtos);
 			return response;

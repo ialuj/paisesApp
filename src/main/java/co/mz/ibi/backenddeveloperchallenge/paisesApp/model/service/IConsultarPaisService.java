@@ -8,25 +8,15 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
  * 
  * @author Jose Julai Ritsure
  * 
- * Interface de servico de consulta de paises
+ *         Interface de servico de consulta de paises
  *
  */
 public interface IConsultarPaisService {
-	
+
 	public List<Pais> listarPaises();
-	
-	public List<Pais> ordenarPaisesPorId();
-	
-	public List<Pais> ordenarPaisesPorNome();
-	
-	public List<Pais> ordenarPaisesPorCapital();
-	
-	public List<Pais> ordenarPaisesPorRegiao();
-	
-	public List<Pais> ordenarPaisesPorSubRegiao();
-	
-	public List<Pais> ordenarPaisesPorArea();
-	
+
 	public Pais pesquisarPaisPorId(final Long id);
+
+	public List<Pais> ordenarPaisesPorPropriedade(final String propriedade);
 
 }

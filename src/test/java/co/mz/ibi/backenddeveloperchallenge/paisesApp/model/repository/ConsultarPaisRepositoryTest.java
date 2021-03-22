@@ -27,6 +27,7 @@ public class ConsultarPaisRepositoryTest {
 		assertEquals(3, paises.size());		
 	}
 	
+	
 	@Test
 	public void ordenarPorId() {
 		List<Pais> paises = consultarPaisRepository.ordenarPaisesPorId();
