@@ -113,6 +113,23 @@ Para remoção:
 NB: A primeira vez aquando da importação e actualização do projecto no seu computador deve ter uma conexação de internet para permitir que o maven baixe as 
 dependências necessárias para o projecto
 
+Para testar os web services hospedados, usar os links:
+
+Consultas:
+
+i. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/todos 
+ii. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/ordenarPorId
+iii. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/ordenarPorNome
+iv. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/ordenarPorCapital
+v. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/ordenarPorRegiao
+vi. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/ordenarPorSubRegiao
+vii. http://paises-2ibi-api.herokuapp.com/api/v1/consultarpaises/ordenarPorArea
+
+Registo, Actualizacao e Remocao:
+
+i. http://paises-2ibi-api.herokuapp.com/api/v1/manterpaises/registarpais
+ii. http://paises-2ibi-api.herokuapp.com/api/v1/manterpaises/actualizarpais
+iii. http://paises-2ibi-api.herokuapp.com/api/v1/manterpaises/removerpais 
 
 
 
