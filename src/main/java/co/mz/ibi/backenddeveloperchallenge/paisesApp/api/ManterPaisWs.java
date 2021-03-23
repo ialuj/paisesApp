@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto.PaisDTO;
+import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.exception.NegocioException;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service.IManterPaisService;
 
@@ -32,6 +33,8 @@ public class ManterPaisWs implements IManterPaisWs {
 	@PostMapping("/registarpais")
 	public ResponseEntity<PaisDTO> registarPais(final PaisDTO paisDTO) {
 		try {
+			final Pais pais = manterPaisService.registarPais(paisDTO.getPais());
+			paisDTO.setPaisDTO(pais);
 			ResponseEntity<PaisDTO> response = ResponseEntity.ok(paisDTO);
 			return response;
 		} catch (final NegocioException negocioException) {
@@ -43,6 +46,8 @@ public class ManterPaisWs implements IManterPaisWs {
 	@PutMapping("/actualizarpais")
 	public ResponseEntity<PaisDTO> actualizarPais(final PaisDTO paisDTO) {
 		try {
+			final Pais pais = manterPaisService.registarPais(paisDTO.getPais());
+			paisDTO.setPaisDTO(pais);
 			ResponseEntity<PaisDTO> response = ResponseEntity.ok(paisDTO);
 			return response;
 		} catch (final NegocioException negocioException) {
