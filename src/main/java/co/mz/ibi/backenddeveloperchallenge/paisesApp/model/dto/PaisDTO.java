@@ -91,17 +91,8 @@ public class PaisDTO {
 		pais.setNome(this.getNome());
 		pais.setCapital(this.getCapital());
 		pais.setRegiao(this.getRegiao());
-		pais.setSubRegiao(pais.getSubRegiao());
+		pais.setSubRegiao(this.getSubRegiao());
 		pais.setArea(this.getArea());
 		return pais;
-	}
-	
-	public void setPaisDTO (final Pais pais) {
-		setId(pais.getId());
-		setNome(pais.getNome());
-		setCapital(pais.getCapital());
-		setRegiao(pais.getRegiao());
-		setSubRegiao(pais.getSubRegiao());
-		setArea(pais.getArea());
 	}
 }

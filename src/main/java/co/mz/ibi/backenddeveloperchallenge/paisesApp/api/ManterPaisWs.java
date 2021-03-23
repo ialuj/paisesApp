@@ -33,8 +33,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	@PostMapping("/registarpais")
 	public ResponseEntity<PaisDTO> registarPais(final PaisDTO paisDTO) {
 		try {
-			final Pais pais = manterPaisService.registarPais(paisDTO.getPais());
-			paisDTO.setPaisDTO(pais);
+			manterPaisService.registarPais(paisDTO.getPais());
 			ResponseEntity<PaisDTO> response = ResponseEntity.ok(paisDTO);
 			return response;
 		} catch (final NegocioException negocioException) {
@@ -46,8 +45,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	@PutMapping("/actualizarpais")
 	public ResponseEntity<PaisDTO> actualizarPais(final PaisDTO paisDTO) {
 		try {
-			final Pais pais = manterPaisService.registarPais(paisDTO.getPais());
-			paisDTO.setPaisDTO(pais);
+			manterPaisService.registarPais(paisDTO.getPais());
 			ResponseEntity<PaisDTO> response = ResponseEntity.ok(paisDTO);
 			return response;
 		} catch (final NegocioException negocioException) {
