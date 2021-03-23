@@ -31,6 +31,29 @@ public class Pais {
 	
 	private Double area;
 
+	public Pais() {
+		super();
+	}
+
+	public Pais(String nome, String capital, String regiao, String subRegiao, Double area) {
+		super();
+		this.nome = nome;
+		this.capital = capital;
+		this.regiao = regiao;
+		this.subRegiao = subRegiao;
+		this.area = area;
+	}
+
+	public Pais(Long id, String nome, String capital, String regiao, String subRegiao, Double area) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.capital = capital;
+		this.regiao = regiao;
+		this.subRegiao = subRegiao;
+		this.area = area;
+	}
+
 	public Long getId() {
 		return id;
 	}

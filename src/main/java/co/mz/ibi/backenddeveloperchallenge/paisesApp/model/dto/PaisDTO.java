@@ -84,15 +84,4 @@ public class PaisDTO {
 	public void setArea(Double area) {
 		this.area = area;
 	}
-	
-	public Pais getPais() {
-		final Pais pais = new Pais();
-		pais.setId(this.getId());
-		pais.setNome(this.getNome());
-		pais.setCapital(this.getCapital());
-		pais.setRegiao(this.getRegiao());
-		pais.setSubRegiao(this.getSubRegiao());
-		pais.setArea(this.getArea());
-		return pais;
-	}
 }
