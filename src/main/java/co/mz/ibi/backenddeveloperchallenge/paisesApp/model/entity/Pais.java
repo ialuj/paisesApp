@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * 
@@ -17,18 +19,21 @@ import javax.persistence.Id;
 public class Pais {
 	
 	@Id
-	@Column(name = "id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank(message = "Indique o Nome do País")
 	private String nome;
 	
+	@NotBlank(message = "Indique a Capital do País")
 	private String capital;
 	
+	@NotBlank(message = "Indique a Região do País")
 	private String regiao;
 	
 	private String subRegiao;
 	
+	@NotNull(message = "Indique a área do País")
 	private Double area;
 
 	public Pais() {

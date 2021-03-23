@@ -2,8 +2,11 @@ package co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service;
 
 import java.util.Optional;
 
+import javax.validation.ConstraintViolationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionSystemException;
 
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.exception.NegocioException;
@@ -13,8 +16,8 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.repository.ManterPais
  * 
  * @author Jose Julai Ritsure
  * 
- * Implementa a interface que disponibiliza servicos de 
- * registo, actualizacao e remocao de paises
+ *         Implementa a interface que disponibiliza servicos de registo,
+ *         actualizacao e remocao de paises
  *
  */
 @Service
@@ -25,7 +28,12 @@ public class ManterPaisService implements IManterPaisService {
 
 	@Override
 	public Pais registarPais(final Pais pais) {
-		return manterPaisRepository.save(pais);
+		try {
+			return manterPaisRepository.save(pais);
+		} catch (final ConstraintViolationException constraintViolationException) {
+			throw new NegocioException("Verifique a informação submetida, "
+					+ constraintViolationException.getConstraintViolations().iterator().next().getMessage());
+		}
 	}
 
 	@Override
@@ -33,7 +41,12 @@ public class ManterPaisService implements IManterPaisService {
 		if (!verificarExistenciaDePais(pais.getId())) {
 			throw new NegocioException("País com ID: " + pais.getId() + " não existe!");
 		}
-		return manterPaisRepository.save(pais);
+		try {
+			return manterPaisRepository.save(pais);
+		} catch (final ConstraintViolationException constraintViolationException) {
+			throw new NegocioException("Verifique a informação submetida, "
+					+ constraintViolationException.getConstraintViolations().iterator().next().getMessage());
+		} 
 	}
 
 	@Override

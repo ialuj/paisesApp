@@ -32,7 +32,6 @@ public class ManterPaisWsTest {
 	@Test
 	public void registarPais() {
 
-
 		final Pais pais = new Pais();
 		pais.setNome("Zimbabwe");
 		pais.setCapital("Harare");

@@ -1,5 +1,8 @@
 package co.mz.ibi.backenddeveloperchallenge.paisesApp.model.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.entity.Pais;
 
 /**
@@ -14,14 +17,18 @@ public class PaisDTO {
 	
 	private Long id;
 	
+	@NotBlank(message = "Indique o Nome do País")
 	private String nome;
 	
+	@NotBlank(message = "Indique a Capital do País")
 	private String capital;
 	
+	@NotBlank(message = "Indique a Região do País")
 	private String regiao;
 	
 	private String subRegiao;
 	
+	@NotNull(message = "Indique a área do País")
 	private Double area;
 
 	public PaisDTO() {
