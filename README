@@ -2,15 +2,18 @@ Esta é uma API Rest desonvolvida usando o FrameWork Spring Boot.
 
 A seguir o passo a passo para poder rodar o projecto localmente:
 
+2. Baixar o código do repositorio do Git abaixo para um workspace de nome a sua escolha:
+
+URL do Git: https://github.com/ialuj/paisesApp
+
+Use o comando "git clone origin https://github.com/ialuj/paisesApp <directorio a alojar o projecto>"
+
 1. Execução de scripts de base de Dados
 
 i) A Base de Dados usada aqui é o MySQL
 ii) Se tiver o MySQL instalado, aceda a pasta /src/test/resources/ e copie o arquivo schema.sql que contém os scripts abaixo:
 
-Crie uma base de dados de nome "countries_db" e execute os scripts
-
--- drop database if exists countries_db; -- Retire os comentários desta linha
--- create database if not exists countries_db; -- Retire os comentários desta linha
+Crie uma base de dados <nome_da_base_de_dados> e execute os scripts
 
 drop table if exists pais;
 
@@ -25,16 +28,11 @@ insert into pais(nome, capital, regiao, sub_regiao, area) values('Mozambique', '
 insert into pais(nome, capital, regiao, sub_regiao, area) values('Angola', 'Luanda', 'Africa', 'Africa Austral', 1246700.00);
 insert into pais(nome, capital, regiao, sub_regiao, area) values('Africa do Sul', 'Pretoria', 'Africa', 'Africa Austral', 1221037.00);
 
-2. Baixar o código do repositorio do Git abaixo para um workspace de nome a sua escolha:
+3. Alterar a url, o utilizador e senha de base de dados no ficheiro localizado em "/src/main/resources/" do projecto e designado "application.properties":
 
-URL do Git: https://github.com/ialuj/paisesApp
-
-Use o comando "git clone origin https://github.com/ialuj/paisesApp <directorio a alojar o projecto>"
-
-3. Alterar o utilizador e senha de base de dados no ficheiro localizado em "/src/main/resources/" do projecto e designado "application.properties":
-
-i. spring.datasource.username=root -- alterar para o seu utilizador de acesso a base de dados
-ii. spring.datasource.password=52452011 -- alterar a senha do utilizador de acesso a base de dados
+i. spring.datasource.username=usuario -- alterar para o seu utilizador de acesso a base de dados
+ii. spring.datasource.password=senha -- alterar a senha do utilizador de acesso a base de dados
+iii. spring.datasource.url=url -- url da base de dados
 
 4. Caso queira executar a aplicação (API) localmente, garanta que tem o Maven instalado no seu Sistema Operativo e a respectiva variavel de Ambiente configurada e também colocada no PATH.
 Então, neste caso, pode prosseguir com os comandos abaixo:
