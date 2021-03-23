@@ -56,7 +56,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	}
 
 	@Override
-	@DeleteMapping("{id}")
+	@DeleteMapping
 	public ResponseEntity removerPais(Long id) {
 		try {
 			manterPaisService.removerPais(id);
