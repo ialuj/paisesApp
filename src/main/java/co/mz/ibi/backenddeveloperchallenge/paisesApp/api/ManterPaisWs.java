@@ -30,7 +30,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	private IManterPaisService manterPaisService;
 
 	@Override
-	@PostMapping
+	@PostMapping("/registarpais")
 	public ResponseEntity<PaisDTO> registarPais(final PaisDTO paisDTO) {
 		try {
 			Pais pais = new Pais(paisDTO.getNome(), paisDTO.getCapital(), paisDTO.getRegiao(), paisDTO.getSubRegiao(), paisDTO.getArea());
@@ -43,7 +43,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	}
 
 	@Override
-	@PutMapping
+	@PutMapping("/actualizarpais")
 	public ResponseEntity<PaisDTO> actualizarPais(final PaisDTO paisDTO) {
 		try {
 			Pais pais = new Pais(paisDTO.getId(), paisDTO.getNome(), paisDTO.getCapital(), paisDTO.getRegiao(), paisDTO.getSubRegiao(), paisDTO.getArea());
@@ -56,7 +56,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	}
 
 	@Override
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/removerpais/{id}")
 	public ResponseEntity removerPais(Long id) {
 		try {
 			manterPaisService.removerPais(id);
