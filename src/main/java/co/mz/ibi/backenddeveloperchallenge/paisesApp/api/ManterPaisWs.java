@@ -23,14 +23,14 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service.IManterPaisSe
  *
  */
 @RestController
-@RequestMapping("api/v1/pais")
+@RequestMapping("api/v1/paises")
 public class ManterPaisWs implements IManterPaisWs {
 
 	@Autowired
 	private IManterPaisService manterPaisService;
 
 	@Override
-	@PostMapping("/registarpais")
+	@PostMapping
 	public ResponseEntity<PaisDTO> registarPais(final PaisDTO paisDTO) {
 		try {
 			Pais pais = new Pais(paisDTO.getNome(), paisDTO.getCapital(), paisDTO.getRegiao(), paisDTO.getSubRegiao(), paisDTO.getArea());
@@ -43,7 +43,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	}
 
 	@Override
-	@PutMapping("/actualizarpais")
+	@PutMapping("/{id}")
 	public ResponseEntity<PaisDTO> actualizarPais(final PaisDTO paisDTO) {
 		try {
 			Pais pais = new Pais(paisDTO.getId(), paisDTO.getNome(), paisDTO.getCapital(), paisDTO.getRegiao(), paisDTO.getSubRegiao(), paisDTO.getArea());
@@ -56,7 +56,7 @@ public class ManterPaisWs implements IManterPaisWs {
 	}
 
 	@Override
-	@DeleteMapping("/removerpais/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity removerPais(Long id) {
 		try {
 			manterPaisService.removerPais(id);
