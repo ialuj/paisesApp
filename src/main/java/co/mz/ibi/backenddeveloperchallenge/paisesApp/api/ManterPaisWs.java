@@ -23,7 +23,7 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service.IManterPaisSe
  *
  */
 @RestController
-@RequestMapping("api/v1/manterpaises")
+@RequestMapping("api/v1/pais")
 public class ManterPaisWs implements IManterPaisWs {
 
 	@Autowired

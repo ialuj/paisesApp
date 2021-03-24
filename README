@@ -57,27 +57,27 @@ O "host" pode ser "localhost" ou "ip" do seu computador
 
 Web Services de consulta:
 
-http://host:8080/api/v1/consultarpaises/todos
+http://host:8080/api/v1/paises/
 
-http://host:8080/api/v1/consultarpaises/ordenarPorId
+http://host:8080/api/v1/paises/ordenarPorId
 
-http://host:8080/api/v1/consultarpaises/ordenarPorNome
+http://host:8080/api/v1/paises/ordenarPorNome
 
-http://host:8080/api/v1/consultarpaises/ordenarPorCapital
+http://host:8080/api/v1/paises/ordenarPorCapital
 
-http://host:8080/api/v1/consultarpaises/ordenarPorRegiao
+http://host:8080/api/v1/paises/ordenarPorRegiao
 
-http://host:8080/api/v1/consultarpaises/ordenarPorSubRegiao
+http://host:8080/api/v1/paises/ordenarPorSubRegiao
 
-http://host:8080/api/v1/consultarpaises/ordenarPorArea
+http://host:8080/api/v1/paises/ordenarPorArea
 
 Web Services de Registo, Actualização e Remoção:
 
-http://host:8080/api/v1/manterpaises/registarpais
+http://host:8080/api/v1/pais/registarpais
 
-http://host:8080/api/v1/manterpaises/actualizarpais
+http://host:8080/api/v1/pais/actualizarpais
 
-http://host:8080/api/v1/manterpaises/removerpais
+http://host:8080/api/v1/pais/removerpais
 
 Exemplo de um JSON a usar nestes casos:
 

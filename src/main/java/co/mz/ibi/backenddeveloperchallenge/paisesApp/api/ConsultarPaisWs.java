@@ -24,14 +24,14 @@ import co.mz.ibi.backenddeveloperchallenge.paisesApp.model.service.IConsultarPai
  *
  */
 @RestController
-@RequestMapping("api/v1/consultarpaises")
+@RequestMapping("api/v1/paises")
 public class ConsultarPaisWs implements IConsultarPaisWs {
 
 	@Autowired
 	private IConsultarPaisService consultarPaisService;
 
 	@Override
-	@GetMapping("/todos")
+	@GetMapping
 	public ResponseEntity<List<PaisDTO>> listarPaises() {
 		try {
 			final List<Pais> paises = consultarPaisService.listarPaises();
