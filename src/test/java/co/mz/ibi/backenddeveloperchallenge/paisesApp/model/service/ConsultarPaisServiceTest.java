@@ -30,7 +30,7 @@ public class ConsultarPaisServiceTest {
 	public void ordenarPaisesPorId() {
 		List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("id");
 		assertFalse(paises.isEmpty());
-		assertEquals(4, paises.size());
+		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
 		assertEquals(1, pais.getId());
 		assertEquals("Mozambique", pais.getNome());
@@ -41,7 +41,7 @@ public class ConsultarPaisServiceTest {
 	public void ordenarPaisesPorNome() {
 		List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("nome");
 		assertFalse(paises.isEmpty());
-		assertEquals(4, paises.size());
+		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
 		assertEquals(3, pais.getId());
 		assertEquals("Africa do Sul", pais.getNome());
@@ -52,18 +52,18 @@ public class ConsultarPaisServiceTest {
 	public void ordenarPaisesPorCapital() {
 		List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("capital");
 		assertFalse(paises.isEmpty());
-		assertEquals(4, paises.size());
+		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
-		assertEquals(4, pais.getId());
-		assertEquals("Eswathini", pais.getNome());
-		assertEquals("Lesotho", pais.getCapital());
+		assertEquals(1, pais.getId());
+		assertEquals("Mozambique", pais.getNome());
+		assertEquals("Maputo", pais.getCapital());
 	}
 	
 	@Test
 	public void ordenarPaisesPorRegiao() {
 		List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("regiao");
 		assertFalse(paises.isEmpty());
-		assertEquals(4, paises.size());
+		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
 		assertEquals(1, pais.getId());
 		assertEquals("Mozambique", pais.getNome());
@@ -74,7 +74,7 @@ public class ConsultarPaisServiceTest {
 	public void ordenarPaisesPorSubRegiao() {
 		List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("subRegiao");
 		assertFalse(paises.isEmpty());
-		assertEquals(4, paises.size());
+		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
 		assertEquals(1, pais.getId());
 		assertEquals("Mozambique", pais.getNome());
@@ -85,7 +85,7 @@ public class ConsultarPaisServiceTest {
 	public void ordenarPaisesPorArea() {
 		List<Pais> paises = consultarPaisService.ordenarPaisesPorPropriedade("area");
 		assertFalse(paises.isEmpty());
-		assertEquals(4, paises.size());
+		assertEquals(3, paises.size());
 		final Pais pais = paises.get(0);
 		assertEquals(4, pais.getId());
 	}
